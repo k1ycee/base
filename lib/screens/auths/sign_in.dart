@@ -21,22 +21,33 @@ class _SignInState extends State<SignIn> {
       ),
       body: Container(
         padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 50.0),
-        child: RaisedButton(
-          child: Text('Sign In',
-          style: TextStyle(
-            color: Colors.blue,
-          ) ,
+        child: Form(
+          child: Column(
+            children: <Widget>[
+              SizedBox(height: 30.0),
+              TextFormField(
+                onChanged: (val){
+                },
+              ),
+              SizedBox(height: 30.0),
+              TextFormField(
+                obscureText: true,
+                onChanged: (val){
+                },
+              ),
+              SizedBox(height: 30.0),
+              RaisedButton(
+                color: Colors.blue[400],
+                onPressed: () async {},
+                child: Text(
+                    'Sign In',
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+                ),
+              ),
+            ],
           ),
-          onPressed: () async {
-        dynamic result = await anon.signAnon();
-        if (result == null){
-          print('Sign in Failed');
-        }
-        else{
-          print('Signed In');
-          print(result.uid);
-        }
-          },
         ),
       ),
     );
